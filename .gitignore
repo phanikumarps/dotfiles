@@ -1,0 +1,4 @@
+*.local
+*.secret
+.DS_Store
+secrets/

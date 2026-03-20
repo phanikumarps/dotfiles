@@ -1,0 +1,24 @@
+[user]
+    name  = Phani Puttabakula
+    email = phani.p@bluefunda.com
+
+[core]
+    editor     = vim
+    autocrlf   = input
+    excludesfile = ~/.gitignore_global
+
+[pull]
+    rebase = true
+
+[push]
+    default = current
+
+[alias]
+    st  = status -sb
+    co  = checkout
+    br  = branch
+    lg  = log --oneline --graph --decorate --all -20
+    undo = reset HEAD~1 --mixed
+
+[init]
+    defaultBranch = main
