@@ -48,10 +48,17 @@ export PATH="$HOME/.local/bin:$GOPATH/bin:$PATH"
 command -v direnv &>/dev/null && eval "$(direnv hook zsh)"
 
 # Aliases — tmux
-alias dev='~/.dotfiles/tmux/dev-session.sh'
 alias ta='tmux attach -t'
 alias tls='tmux ls'
 alias tnew='tmux new-session -s'
+
+# ── Multi-machine aliases ─────────────────────────────────────────────────────
+# dev        : attach/create the main tmux session on console
+# onprem-src : SSH into onprem and cd to ~/src (Claude workspace)
+alias dev="~/.dotfiles/tmux/dev-session.sh"
+alias onprem-src="ssh -t \${ONPREM_USER}@\${ONPREM_HOST} 'cd ~/src && exec \$SHELL'"
+alias onprem-claude="ssh -t \${ONPREM_USER}@\${ONPREM_HOST} 'cd ~/src && claude-src'"
+alias devbox="ssh \${CONSOLE_USER}@\${CONSOLE_HOST} -t 'tmux attach -t bluefunda || bash ~/.dotfiles/tmux/dev-session.sh'"
 
 # Machine-local overrides and secrets — never committed
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
