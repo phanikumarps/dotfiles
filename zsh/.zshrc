@@ -57,7 +57,7 @@ alias tnew='tmux new-session -s'
 # onprem-src : SSH into onprem and cd to ~/src (Claude workspace)
 alias dev="~/.dotfiles/tmux/dev-session.sh"
 alias onprem-src="ssh -t \${ONPREM_USER}@\${ONPREM_HOST} 'cd ~/src && exec \$SHELL'"
-alias onprem-claude="ssh -t \${ONPREM_USER}@\${ONPREM_HOST} 'cd ~/src && claude-src'"
+alias onprem-claude="ssh -t \${ONPREM_USER}@\${ONPREM_HOST} 'cd ~/src && ~/.local/bin/claude-src'"
 alias devbox="ssh \${CONSOLE_USER}@\${CONSOLE_HOST} -t 'bash ~/.dotfiles/tmux/dev-session.sh'"
 
 # Machine-local overrides and secrets — never committed
