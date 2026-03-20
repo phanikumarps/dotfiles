@@ -14,6 +14,7 @@
 SESSION="${1:-bluefunda}"
 
 # ── Machine config (set in ~/.zshrc.local) ────────────────────────────────────
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
 ONPREM_USER="${ONPREM_USER:-}"
 ONPREM_HOST="${ONPREM_HOST:-}"
 
