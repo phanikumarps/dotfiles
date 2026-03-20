@@ -40,7 +40,7 @@ echo "Creating session '$SESSION'..."
 # Window 1: onprem-claude — SSH into onprem, start claude in ~/src
 tmux new-session -d -s "$SESSION" -n "onprem-claude" -x 220 -y 50
 tmux send-keys -t "$SESSION:onprem-claude" \
-  "ssh -t $ONPREM 'cd ~/src && ~/.local/bin/claude-src'" Enter
+  "ssh -t $ONPREM 'cd ~/src && ~/.local/bin/claude'" Enter
 
 # Window 2: onprem-shell — SSH into onprem, interactive shell
 tmux new-window -t "$SESSION" -n "onprem-shell"
