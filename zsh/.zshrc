@@ -8,9 +8,13 @@ ZSH_THEME=""
 plugins=(git z docker kubectl)
 [[ -d "$ZSH" ]] && source "$ZSH/oh-my-zsh.sh"
 
+# Terminal title
+title() { echo -ne "\033]0;$1\007"; }
+TERMINAL_TITLE="${TERMINAL_TITLE:-$(hostname -s)}"
+
 # Prompt — minimal with git branch and time
 autoload -Uz vcs_info
-precmd() { vcs_info }
+precmd() { vcs_info; title "$TERMINAL_TITLE: ${PWD/#$HOME/~}" }
 zstyle ':vcs_info:git:*' formats ' %F{cyan}(%b)%f'
 setopt PROMPT_SUBST
 PROMPT='%F{green}%~%f${vcs_info_msg_0_} %F{yellow}%*%f
